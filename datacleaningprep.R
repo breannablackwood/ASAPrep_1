@@ -1,11 +1,12 @@
 #ASA Datafest Part 1 Prep 2026
+#Created March 20, 2026 
 #Reading in and Cleaning Data
 #Breanna Blackwood & Anh Pham, UF Statistics Club
 
-#Libraries
+####Libraries
 library(dplyr)
 
-#Read in data files 
+####Read in data files 
 #I would recommend downloading it to your computer and reading it in. 
 #This is easiest for me personally. 
 data <- read.csv("~/Downloads/Guetschow-et-al-2022-PRIMAP-hist_v2.4_11-Oct-2022.csv")
@@ -31,25 +32,42 @@ head(data21century)
 ####Subsetting rows
 #But what if we want to do rows? 
 #We can use slice() from the dplyr package, or base r functions 
+#Let's say we want to only have the first 100 rows. 
+data21first100 <- slice(data21century, (1:100))
+#We can also specify with different slice function minimum values, maximum, etc. 
+#Check the help pane for that information.
+
 #If we want to subset by condition, we can use filter() from dplyr or base r functions 
+#Let's say we want rows that have the entity CO2 only. 
+data21CO2 <- filter(data21century, entity == "CO2")
+
+####Getting rid of NA values 
+#Okay. Let's suppose we want to remove all NA values from a dataset. 
+#We can do this using na.omit
+data21century <- na.omit(data21century) #Note this will remove any row that contains at least one NA value
+
+#So we can see that removes all the rows and there is nothing left. 
+#If we want to remove based on certain columns, we can use filter() instead or subset() 
 
 
-##Getting rid of NA values 
+####Transpose rows 
 
 
-##Transpose rows 
+####Creating new variables/columns
+#To create a new variable, we use the $ operator after the dataset.
+#Let's say, just for fun we want to add a column that says "meow" in to our 21st century data.
+data21century$cat <- "meow"
+head(data21century)
+#As we can see, the whole row is full of meows. 
+
+####Bind columns and rows 
 
 
-##Creating new variables/columns
 
-#Bind columns and rows 
-
+####Write out cleaned data to a csv. 
 
 
-#Write out to a CSV. 
-
-
-#Final notes
+####Final notes
 #You can use base R commands to do some of these things, which is what I usually do. 
 #But, using package commands may be helpful as well. 
 #Ii would recommend also: tibble, tidyverse, and tinytex packages. 
