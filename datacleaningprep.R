@@ -48,7 +48,9 @@ data21century <- na.omit(data21century) #Note this will remove any row that cont
 
 #So we can see that removes all the rows and there is nothing left. 
 #If we want to remove based on certain columns, we can use filter() instead or subset() 
-
+#For example let's remove the rows with NA in 2000 or 2001 columns
+clean2 <- data21century |>
+  filter(!is.na(`2000`) & !is.na(`2001`))
 
 ####Transpose rows 
 
@@ -58,11 +60,12 @@ data21century <- na.omit(data21century) #Note this will remove any row that cont
 #Let's say, just for fun we want to add a column that says "meow" in to our 21st century data.
 data21century$cat <- "meow"
 head(data21century)
-#As we can see, the whole row is full of meows. 
+#As we can see, the whole column is full of meows. 
 
 ####Bind columns and rows 
-
-
+#This is helpful when combining rows and columns from different datasets. 
+#We can do this by using the bind_rows() and bind_cols()
+#See help documentation for more information.
 
 ####Write out cleaned data to a csv. 
 
