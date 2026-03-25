@@ -116,7 +116,9 @@ city_data <- city_data %>% arrange(desc(City), Population)
 #See help documentation for more information.
 
 ####Write out cleaned data to a csv. 
-
+#To write out a csv, do the following: 
+write.csv(city_data, file = "cleaned_city_data.csv")
+#This will write out the data in the city_data to a .csv file in your wd with that name. 
 
 ####Final notes
 #You can use base R commands to do some of these things, which is what I usually do. 
