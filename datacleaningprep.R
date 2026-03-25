@@ -19,7 +19,7 @@ head(data) #allows us to see the beginning rows of the data.
 colnames(data) <- c("source", "scenario (PRIMAP-hist)", "area (ISO3)", "entity", 
                     "unit", "category (IPCC2006_PRIMAP)", 1750:2021)
 
- 
+
 ####Subsetting columns 
 #Now, let's say we want to only focus on certain columns of the data. 
 #Then, we would want to create a new dataset that only has these columns.
